@@ -1,46 +1,42 @@
-function playerChoice() {
-    input = prompt('what is your decision?');
-    console.log(input);
-    
-}
-
-
-
-const choices = ['rock', 'paper', 'scissors'];
-
 function getComputerChoice() {
-    
-    const random = Math.floor(Math.random() * choices.length);
-    console.log(choices[random]);
+    let choices = ['rock', 'paper', 'scissors'];
+
+    let output = choices[Math.floor(Math.random() * choices.length)];
+
+    return output;
 }
 
+function getHumanChoice() {
+    let decision = prompt('What is your decision?');
+    return decision;
+}
 
-function playRound(humanChoice, computerChoice){
-    if (humanChoice === computerChoice){
-        console.log('Its a tie');
-        
+function playRound(humanSelect, computerSelect){
+    if (humanSelect === computerSelect) {
+        return ("It's a tie!");
     }
 
-    else if (humanChoice === 'rock' && computerChoice === 'paper')
-
-    {
-            console.log('you lose');
+    else if (humanSelect == 'rock' && computerSelect == 'scissors'){
+        return ("You win! Rock beats Scissors");
     }
 
-    else if (humanChoice === 'paper' && computerChoice === 'scissors'){
-        console.log('you lose');
+    else if (humanSelect == 'paper' && computerSelect == 'rock'){
+        return ("You win! paper beats rock");
     }
 
-    else if (humanChoice === 'scissors' && computerChoice === 'paper'){
-        console.log('you lose');
+    else if (humanSelect == 'scissors' && computerSelect == 'paper'){
+        return ("You win! scissors beats paper");
     }
 
     else {
-        console.log('you win');
+        return ("You lose, " + computerSelect + " beats " + humanSelect);
     }
+
 }
 
-const humanChoice = playerChoice();
-const computerChoice = getComputerChoice();
+const humanSelect = getHumanChoice();
+const computerSelect = getComputerChoice();
 
-playRound(humanChoice, computerChoice);
+
+console.log(playRound(humanSelect,computerSelect));
+
